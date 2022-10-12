@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        /* .father {
+            position: absolute;
+            position: relative;
+            margin: 150px;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        } */
+
+        /* .son {
+            margin-left: 45px;
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+        } */
+
+        /* .w {
+            padding: 20px;
+            margin: 0 auto 200px;
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            border: 5px solid #000;
+        } */
+
+        .box {
+            margin: 20px;
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- <div class="father">
+        <div class="son"></div>
+    </div>
+    <div class="w"></div>
+    <script>
+        var father = document.querySelector('.father');
+        var son = document.querySelector('.son');
+        // 元素位置偏移
+        console.log(father.offsetTop);
+        console.log(father.offsetLeft);
+        console.log(son.offsetLeft);
+
+        // 元素大小
+        var w = document.querySelector('.w');
+        console.log(w.offsetWidth);
+        console.log(w.offsetHeight);
+
+        // 返回父级元素
+        // offsetParent：返回带有定位的父级元素，父级元素不带定位则返回body
+        // parentNode：返回父级元素，无论父级元素是否有定位
+        console.log(son.offsetParent);
+        console.log(son.parentNode);
+    </script> -->
+
+    <!-- 案例：计算鼠标在盒子内的坐标 -->
+    <div class="box"></div>
+    <script>
+        var box = document.querySelector('.box');
+        box.addEventListener('mousemove', function (e) {
+            // console.log(e.pageX);
+            // console.log(e.pageY);
+            // console.log(box.offsetLeft);
+            // console.log(box.offsetTop);
+            var x = e.pageX - box.offsetLeft;
+            var y = e.pageY - box.offsetTop;
+            // console.log(x);
+            // console.log(y);
+            box.innerHTML = 'x坐标是' + x + '，y坐标是' + y;
+        })
+    </script>
+
+    
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li {
+            margin-bottom: 10px;
+            width: 200px;
+            height: 30px;
+            background-color: pink;
+            font-size: 16px;
+            line-height: 30px;
+            color: red;
+        }
+
+        li a {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <button>发布</button>
+    <ul>
+    </ul>
+    <script>
+        var text = document.querySelector('textarea');
+        var btn = document.querySelector('button');
+        var ul = document.querySelector('ul');
+        btn.onclick = function () {
+            if (text.value == '') {
+                alert('未输入内容！');
+            } else {
+                // 创建节点
+                var lis = document.createElement('li');
+                // 赋值
+                lis.innerHTML = text.value + "<a href='javascript:;'>删除</a>";
+                // 添加节点
+                ul.insertBefore(lis, ul.children[0]);
+                // 删除节点：querySelectorAll()
+                var as = document.querySelectorAll('a');
+                for (var i = 0; i < as.length; i++) {
+                    as[i].onclick = function () {
+                        // node.removeChild(child); parentNode父节点
+                        ul.removeChild(this.parentNode);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

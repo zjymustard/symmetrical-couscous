@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="demo">
+        <div class="box">
+            <span class="code">x</span>
+        </div>
+    </div>
+    <script>
+        var code = document.querySelector('.code');
+        // 得到的是离元素最近的父级节点
+        // 如果指定的节点没有父节点，则返回null
+        console.log(code.parentNode);
+    </script>
+</body>
+
+</html>

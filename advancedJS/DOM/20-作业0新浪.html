@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .wrapper {
+            margin: 0 auto;
+        }
+
+        .header {
+            height: 30px;
+            background-color: pink;
+        }
+
+        .nav {
+            width: 500px;
+            height: 30px;
+            background-color: green;
+        }
+
+        .login,
+        .weiBo,
+        .blog,
+        .eMail {
+            float: left;
+            width: 50px;
+            height: 30px;
+            background-color: #fff;
+            font-size: 14px;
+            text-align: center;
+            line-height: 30px;
+            color: #333;
+        }
+
+        .login {
+            margin-left: 200px;
+        }
+
+        .webNav {
+            float: left;
+            width: 100px;
+            height: 30px;
+            background-color: #fff;
+            font-size: 14px;
+            text-align: center;
+            line-height: 30px;
+            color: #333;
+        }
+
+        .weiBo:hover {
+            cursor: pointer;
+            background-color: #ccc;
+        }
+
+        .menu {
+            float: left;
+            display: none;
+            margin-left: 250px;
+            width: 50px;
+            height: 100px;
+            /* background-color: pink; */
+        }
+
+        li {
+            border: 1px solid #FECC5B;
+            text-align: center;
+            line-height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="wrapper nav">
+            <div class="login">登录</div>
+            <div class="weiBo">微博</div>
+            <div class="blog">博客</div>
+            <div class="eMail">邮箱</div>
+            <div class="webNav">网站导航</div>
+            <div class="menu">
+                <ul>
+                    <li>私信</li>
+                    <li>评论</li>
+                    <li>@我</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        var wb = document.querySelector('.weiBo');
+        var menu = document.querySelector('.menu');
+        wb.onmouseover = function () {
+            menu.style.display = 'block';
+        }
+        wb.onmouseout = function () {
+            menu.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

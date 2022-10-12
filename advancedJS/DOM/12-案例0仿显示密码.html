@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            width: 400px;
+            border: 1px solid #000;
+            margin: 100px auto;
+        }
+
+        .box input {
+            width: 370px;
+            height: 30px;
+            border: 0px solid #000;
+            outline: none;
+        }
+
+        .box img {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            width: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <label for="">
+            <img src="./images/close.png" alt="" id="eye">
+        </label>
+        <input type="password" name="pwd" id="pwd">
+    </div>
+    <script>
+        // 1.获取元素
+        var btn = document.getElementById('eye');
+        var pwd = document.getElementById('pwd');
+        // 2.注册事件，处理程序
+        var flag = 0;
+        btn.onclick = function () {
+            if (flag == 0) {
+                pwd.type = 'text';
+                btn.src = './images/open.png';
+                flag = 1;
+            } else {
+                pwd.type = 'password';
+                btn.src = './images/close.png';
+                flag = 0;
+            }
+        }
+    </script>
+</body>
+
+</html>

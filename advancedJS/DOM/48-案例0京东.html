@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            outline: none;
+        }
+
+        .con {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 模拟京东按键输入内容 -->
+    <input type="text">
+    <script>
+        var input = document.querySelector('input');
+        document.onkeyup = function (e) {
+            console.log(e.keyCode);
+            if (e.keyCode == 83) {
+                input.focus();
+            }
+        }
+    </script>
+
+    <!-- 模拟京东快递单号查询 -->
+    <div class="search">
+        <div class="con"></div>
+        <input type="text" placeholder="请输入快递单号" class="jd">
+    </div>
+    <script>
+        var con = document.querySelector('.con');
+        var input = document.querySelector('.jd');
+        input.addEventListener('keyup', function () {
+            if (this.value == '') {
+                con.style.display = 'none';
+            } else {
+                con.style.display = 'block';
+                con.innerHTML = this.value;
+            }
+        })
+        input.addEventListener('blur', function () {
+            con.style.display = 'none';
+        })
+        input.addEventListener('focus', function () {
+            if (this.value != '') {
+                con.style.display = 'block';
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="./images/advertisment.jpg" alt="">
+    <button>停止定时器</button>
+    <script>
+        // 1.[window.]setTimeout(调用函数, 延时时间);
+        // 2.延时时间单位是毫秒，可以省略，省略默认是0
+        // 3.调用函数可以直接写函数，也可以写函数名
+        // 4.'函数名()'，该方法不提倡
+        setTimeout(function () {
+            alert('时间到');
+        }, 2000)
+
+        setTimeout(callBack, 4000);
+
+        setTimeout('callBack()', 6000);
+
+        function callBack() {
+            alert('爆炸了');
+        }
+
+        // window.setTimeout(调用函数, [延迟的毫秒数]);
+
+        // 标识符timer
+        var timer = setTimeout(callBack, 3000);
+
+        // 案例：5秒后自动关闭广告
+        var ad = document.querySelector('img');
+        setTimeout(fn, 5000);
+        function fn() {
+            ad.style.display = 'none';
+        }
+
+        // 关闭定时器clearTimeout(timeoutID)
+        var timer = setTimeout(function () {
+            alert('爆炸！');
+        }, 5000);
+        var btn = document.querySelector('button');
+        btn.addEventListener('click', function () {
+            clearTimeout(timer);
+        })
+    </script>
+</body>
+
+</html>

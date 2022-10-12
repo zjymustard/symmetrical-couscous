@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrapper {
+            margin: 0 auto;
+        }
+
+        .header {
+            height: 100px;
+            background-color: pink;
+        }
+
+        .header .advertisement {
+            position: relative;
+            width: 1485px;
+            height: 100px;
+            background-color: green;
+        }
+
+        .header .advertisement .close {
+            position: absolute;
+            top: 7px;
+            right: 0;
+        }
+
+        .header .advertisement .close:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="wrapper advertisement">
+            <img src="./images/ads.png" alt="" class="ad">
+            <img src="./images/_close.png" alt="" class="close">
+        </div>
+    </div>
+    <script>
+        var close = document.querySelector('.close');
+        var adv = document.querySelector('.advertisement');
+        close.onclick = function () {
+            adv.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

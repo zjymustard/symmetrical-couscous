@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        input {
+            width: 350px;
+            height: 30px;
+            outline: none;
+            border: 1px solid #7d7d7d;
+        }
+
+        input::placeholder {
+            color: #7d7d7d;
+        }
+
+        .mask {
+            display: none;
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            /* background-color: pink; */
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .login {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: 500px;
+            height: 250px;
+            background-color: #fff;
+            z-index: 999;
+            transform: translate(-50%, -50%);
+        }
+
+        .login .title {
+            cursor: move;
+        }
+
+        .login .title span {
+            display: block;
+            padding-top: 20px;
+            font-size: 18px;
+            text-align: center;
+            /* background-color: pink; */
+        }
+
+        .login .title .close-btn {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            display: block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #fff;
+            font-size: 14px;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        .login .login-input {
+            margin-top: 20px;
+            height: 30px;
+            font-size: 16px;
+            line-height: 30px;
+            /* background-color: pink; */
+        }
+
+        .name {
+            padding-left: 40px;
+        }
+
+        .pwd {
+            padding-left: 24px;
+        }
+
+        .login .btn {
+            margin: 0 auto;
+            margin-top: 30px;
+            width: 200px;
+            height: 40px;
+            /* background-color: pink; */
+            border: 1px solid #7d7d7d;
+        }
+
+        .login .btn .login-btn {
+            display: block;
+            font-size: 16px;
+            text-align: center;
+            line-height: 40px;
+            /* background-color: red; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <a href="javascript:;" class="link">点击，弹出登录框</a>
+    </div>
+    <div class="login">
+        <div class="title">
+            <span>登录会员</span>
+            <a href="javascript:;" class="close-btn">关闭</a>
+        </div>
+        <div class="login-input name">
+            <span>用户名：</span>
+            <input type="text" placeholder="请输入用户名" class="userName">
+        </div>
+        <div class="login-input pwd">
+            <span>登录密码：</span>
+            <input type="password" placeholder="请输入登录密码" class="password">
+        </div>
+        <div class="btn">
+            <a href="javascript:;" class="login-btn">登录会员</a>
+        </div>
+    </div>
+    <!-- 遮罩层 -->
+    <div class="mask"></div>
+    <script>
+        var link = document.querySelector('.link');
+        var login = document.querySelector('.login');
+        var mask = document.querySelector('.mask');
+        link.addEventListener('click', function () {
+            login.style.display = 'block';
+            mask.style.display = 'block';
+        })
+        var closeBtn = document.querySelector('.close-btn');
+        closeBtn.addEventListener('click', function () {
+            login.style.display = 'none';
+            mask.style.display = 'none';
+        })
+        var title = document.querySelector('.title');
+        title.addEventListener('mousedown', function (e) {
+            var x = e.pageX - login.offsetLeft; // 鼠标在盒子内的坐标
+            var y = e.pageY - login.offsetTop;
+            function move(e) {
+                login.style.left = e.pageX - x + 'px';
+                login.style.top = e.pageY - y + 'px';
+            }
+            document.addEventListener('mousemove', move);
+            document.addEventListener('mouseup', function () {
+                document.removeEventListener('mousemove', move);
+            });
+        })
+    </script>
+</body>
+
+</html>

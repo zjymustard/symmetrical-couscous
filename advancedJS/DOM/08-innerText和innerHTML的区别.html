@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <p>
+        我是文字
+        <span>123</span>
+    </p>
+    <script>
+        var div = document.querySelector('div');
+        var p = document.querySelector('p');
+        // 1.innerText：不识别HTML标签，非标准；不空格、不换行       
+        div.innerText = '<strong>今天是：2019</strong>';
+        console.log(p.innerText);
+        // 2.innerHTML：识别HTML标签，W3C标准；空格、换行
+        div.innerHTML = '<strong>今天是：2019</strong>';
+        console.log(p.innerHTML);
+    </script>
+</body>
+
+</html>
