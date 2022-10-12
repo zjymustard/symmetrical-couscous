@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // 对象
+        // 1
+        var computer = {
+            color: 'black',
+            weight: 15,
+            btand: '戴尔',
+            model: 'APTX4869',
+            fn: function () {
+                console.log('看电影');
+                console.log('听音乐');
+                console.log('打游戏');
+                console.log('敲代码');
+            }
+        }
+
+        // 2
+        var button = {
+            width: 50,
+            height: 50,
+            backgroundcolor: 'blue',
+            onClick: function () { }
+        }
+
+        // 3
+        var car = {
+            weight: 100,
+            color: 'white',
+            brand: '保时捷',
+            fn: function () {
+                console.log('载人');
+                console.log('拉货');
+                console.log('耕田');
+            }
+        }
+
+        // 函数
+        // 1
+        function reverse(arr) {
+            var newArr = [];
+            for (var i = arr.length - 1; i >= 0; i--) {
+                newArr[newArr.length] = arr[i];
+            }
+            return newArr;
+        }
+        console.log(reverse([88, 4, 16]));
+
+        // 2
+        function sort(arr) {
+            var temp = [];
+            for (var i = 0; i < arr.length - 1; i++) {
+                for (var j = 0; j < arr.length - 1 - i; j++) {
+                    if (arr[j] >= arr[j + 1]) {
+                        temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+            return arr;
+        }
+        console.log(sort([88, 4, 16]));
+        
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

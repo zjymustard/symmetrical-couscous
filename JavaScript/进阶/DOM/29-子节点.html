@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+    </ul>
+    <ol>
+        <li>我是li1</li>
+        <li>我是li2</li>
+        <li>我是li3</li>
+        <li>我是li4</li>
+    </ol>
+    <script>
+        var ul = document.querySelector('ul');
+        // 1.childNodes获取所有的子节点，包含元素节点、文本节点等
+        console.log(ul.childNodes);
+        console.log(ul.childNodes[0].nodeType);
+        // 2.children获取所有的子元素节点，实际开发中常用❗
+        console.log(ul.children);
+
+        var ol = document.querySelector('ol');
+        // 1.firstChild获取第一个子节点，无论是文本节点还是元素节点
+        // 2.lastChild获取最后一个子节点
+        console.log(ol.firstChild);
+        console.log(ol.lastChild);
+        // 3.firstElementChild获取第一个子元素节点
+        // 4.lastElementChild获取最后一个子元素节点
+        console.log(ol.firstElementChild);
+        console.log(ol.lastElementChild);
+
+        // 1.children[序号]
+        console.log(ol.children[0]);
+        console.log(ol.children[ol.children.length - 1]);
+    </script>
+</body>
+
+</html>

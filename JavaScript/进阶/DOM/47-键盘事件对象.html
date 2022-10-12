@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.
+        document.onkeyup = function (e) {
+            alert('弹起');
+            console.log(e);
+        }
+        // 2.执行顺序：keydown -> keypress -> keyup
+        document.addEventListener('keyup', function () {
+            console.log('弹起keyup');
+        })
+        document.addEventListener('keydown', function () {
+            console.log('按下keydown');
+        })
+        document.addEventListener('keypress', function () {
+            console.log('按下keypress');
+        })
+        // 3.keyup和keydown事件：不区分字母大小写，a=A=65
+        // 4.keypress事件：区分字母大小写，a=97,A=65
+        document.addEventListener('keyup', function (e) {
+            console.log('keyup');
+            console.log(e.keyCode);
+        })
+        document.addEventListener('keydown', function (e) {
+            console.log('keydown');
+            console.log(e.keyCode);
+        })
+        document.addEventListener('keypress', function (e) {
+            console.log('keypress');
+            console.log(e.keyCode);
+        })
+    </script>
+</body>
+
+</html>

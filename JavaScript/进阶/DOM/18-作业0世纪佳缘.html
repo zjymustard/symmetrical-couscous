@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box .userName {
+            width: 120px;
+            height: 23px;
+            outline: none;
+            border: 1px solid #d9d9d9;
+            font-size: 12px;
+            color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="text" value="邮箱/ID/手机号" class="userName">
+    </div>
+    <script>
+        var un = document.querySelector('.userName');
+        un.onfocus = function () {
+            un.value = '';
+        }
+        un.onblur = function () {
+            un.value = '邮箱/ID/手机号';
+        }
+    </script>
+</body>
+
+</html>

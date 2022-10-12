@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // 1
+        var time = prompt('输入时间');
+        if (time >= 5 && time < 8) {
+            alert('早上好！');
+        } else if (time >= 8 && time < 12) {
+            alert('上午好！');
+        } else if (time >= 12 && time < 13) {
+            alert('中午好！');
+        } else if (time >= 13 && time < 19) {
+            alert('下午好！');
+        } else if (time >= 19 && time < 24) {
+            alert('晚上好！');
+        } else if (time >= 0 && time < 5) {
+            alert('凌晨好！');
+        } else {
+            alert('输入不合法！');
+        }
+
+        // 2
+        var num1 = prompt('输入第一个值');
+        var num2 = prompt('输入第二个值');
+        var result = num1 <= num2 ? num2 : num1;
+        alert('最大值是' + result);
+
+        // 3
+        var num = prompt('输入一个数');
+        var result = num % 2 == 0 ? '偶数' : '奇数';
+        alert(num + '是' + result);
+
+        // 4
+        var day = prompt('输入一个数');
+        switch (day) {
+            case '1':
+                alert('星期一');
+                break;
+            case '2':
+                alert('星期二');
+                break;
+            case '3':
+                alert('星期三');
+                break;
+            case '4':
+                alert('星期四');
+                break;
+            case '5':
+                alert('星期五');
+                break;
+            case '6':
+                alert('星期六');
+                break;
+            case '7':
+                alert('星期七');
+                break;
+            default:
+                alert('非法输入！');
+        }
+
+        // 5
+        var money = prompt('输入口袋内的钱数');
+        if (money >= 2000) {
+            alert('吃西餐');
+        } else if (money < 2000 && money >= 1500) {
+            alert('快餐');
+        } else if (money < 1500 && money >= 1000) {
+            alert('喝饮料');
+        } else if (money < 1000 && money >= 500) {
+            alert('棒棒糖');
+        } else {
+            alert('下次把钱带够！');
+        }
+
+        // 6
+        var score = prompt('输入分数');
+        if (score >= 90) {
+            alert('A');
+        } else if (score < 90 && score >= 80) {
+            alert('B');
+        } else if (score < 80 && score >= 70) {
+            alert('C');
+        } else if (score < 70 && score >= 60) {
+            alert('D');
+        } else {
+            alert('E');
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

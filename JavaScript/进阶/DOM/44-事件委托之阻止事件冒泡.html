@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>知否知否，应是绿肥红瘦</li>
+        <li>知否知否，应是绿肥红瘦</li>
+        <li>知否知否，应是绿肥红瘦</li>
+        <li>知否知否，应是绿肥红瘦</li>
+        <li>知否知否，应是绿肥红瘦</li>
+    </ul>
+    <script>
+        var ul = document.querySelector('ul');
+        ul.addEventListener('click', fn);
+        function fn(e) {
+            alert('知否知否');
+            e.target.style.backgroundColor = 'pink';
+        }
+
+        // 1.禁用右键菜单
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        })
+        // 2.禁止选中文字
+        document.addEventListener('selectstart', function (e) {
+            e.preventDefault();
+        })
+
+    </script>
+</body>
+
+</html>

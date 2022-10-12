@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // 基本包装类型
+        var str = 'pink';
+        console.log(str.length);
+        var name = 'green';
+        console.log(name.length);
+
+        // 执行过程如下：
+        var temp = new String('pink');
+        str = temp;
+        temp = null;
+
+        // 案例❗❗❗
+        var str = 'abcoefoxyozzopp';
+        var index = str.indexOf('o'); // 3
+        var count = 0;
+        // console.log(index);
+        while (index != -1) {
+            console.log(index + 1);
+            count++;
+            index = str.indexOf('o', index + 1);
+        }
+        console.log('o出现的次数：' + count);
+
+        // 作业
+        var arr = ['red', 'blue', 'red', 'green', 'pink', 'red'];
+        var index = arr.indexOf('red');
+        var count = 0;
+        while (index != -1) {
+            console.log(index + 1);
+            count++;
+            index = arr.indexOf('red', index + 1);
+        }
+        console.log('red出现的次数：' + count);
+
+        // ❗❗❗❗❗❗
+        var str = 'abcoefoxyozzopp';
+        var obj = {}; // 存放每个字母，以及出现的次数
+        for (var i = 0; i < str.length; i++) {
+            var letters = str.charAt(i); // 代表字符串中的每个字符
+            if (obj[letters]) {
+                obj[letters]++;
+            } else {
+                obj[letters] = 1;
+            }
+        }
+        // console.log(obj);
+        var max = 0;
+        var letter;
+        for (var k in obj) {
+            if (max < obj[k]) {
+                max = obj[k]; // 属性值，即出现次数
+                letter = k; // 属性，即相应字母
+            }
+        }
+        console.log('出现次数最多的字符是：' + letter);
+        console.log('出现次数是：' + max);
+
+        // 字符串转数组
+        var str = 'red,pink,blue';
+        console.log(str);
+        console.log(str.split(','));
+        var str = 'red&pink&blue';
+        console.log(str.split('&'));
+
+        // 作业
+        var str = 'abaasdffggghhjjkkgfddsssss3444343';
+        console.log(str.length); // 字符串长度
+        var index = 9;
+        console.log(str.charAt(index)); // 取出指定位置的字符
+        var letter = 'b';
+        // 查找指定字符是否存在
+        if (str.indexOf(letter) == -1) {
+            console.log(letter + '字符不存在');
+        } else {
+            console.log(letter + '字符存在');
+        }
+        // 替换单次
+        console.log(str.replace('g', '22'));
+        console.log(str.replace('ss', 'b'));
+        // 完全替换
+        for (var i = 0; i < str.length; i++) {
+            if (str.indexOf('g') != -1) {
+                str = str.replace('g', '22');
+            } else if (str.indexOf('ss') != -1) {
+                str = str.replace('ss', 'b');
+            }
+        }
+        console.log(str);
+        // 截取字符
+        console.log(str.slice(1, 6));
+        // 找出字符串中出现次数最多的字符，以及出现的次数❗❗❗
+        var str = 'abaasdffggghhjjkkgfddsssss3444343';
+        var obj = {}; // 存放 字母：出现次数
+        var letter; // 存放 字母
+        for (var i = 0; i < str.length; i++) {
+            letter = str.charAt(i);
+            if (obj[letter]) {
+                obj[letter]++;
+            } else {
+                obj[letter] = 1;
+            }
+        }
+        console.log(obj);
+        var max = 0;
+        var character;
+        for (var k in obj) {
+            if (max < obj[k]) {
+                max = obj[k];
+                character = k;
+            }
+        }
+        console.log('以上字符串中出现次数最多的字符是：' + character);
+        console.log('出现次数是：' + max);
+
+        // ❗❗❗
+        function Person(name) {
+            this.name = name;
+        }
+        function f1(x) {
+            console.log(x.name); // 刘
+            x.name = '张学友';
+            console.log(x.name); // 张
+        }
+        var p = new Person('刘德华');
+        console.log(p.name); // 刘
+        f1(p);
+        console.log(p.name); // 张
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

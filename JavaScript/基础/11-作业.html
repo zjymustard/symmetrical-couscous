@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // 1
+        var sum = 0, avg = 0;
+        for (var i = 1; i <= 100; i++) {
+            sum += i;
+        }
+        console.log('总和：' + sum);
+        console.log('平均值：' + sum / 100);
+
+        // 2
+        var evenSum = 0;
+        for (var i = 1; i <= 100; i++) {
+            if (i % 2 == 0) {
+                evenSum += i;
+            }
+        }
+        console.log('偶数和：' + evenSum);
+
+        // 3
+        var sevenSum = 0;
+        for (var i = 1; i <= 100; i++) {
+            if (i % 7 == 0) {
+                sevenSum += i;
+            }
+        }
+        console.log('7的倍数总和：' + sevenSum);
+
+        // 4
+        var str = '';
+        for (var i = 1; i <= 4; i++) {
+            for (var j = 1; j <= 5; j++) {
+                str += '★';
+            }
+            str += '\n';
+        }
+        console.log(str);
+
+        // 5
+        var str = '';
+        for (var i = 1; i <= 5; i++) {
+            for (var j = 1; j <= i; j++) {
+                str += '☆';
+            }
+            str += '\n';
+        }
+        console.log(str);
+
+        // 6
+        var str = '';
+        for (var i = 1; i <= 9; i++) {
+            for (var j = 1; j <= i; j++) {
+                str += j + '×' + i + '=' + i * j + '\t';
+            }
+            str += '\n';
+        }
+        console.log(str);
+
+        // 7
+        var userName = prompt('输入用户名');
+        var password = prompt('输入密码');
+        if (userName == 'admin') {
+            while (password != '123456') {
+                password = prompt('输入密码');
+            }
+            alert('登陆成功！');
+        }
+
+        // 8
+        var sum = 0;
+        for (var i = 1; i <= 100; i++) {
+            if (i % 10 == 3) {
+                continue;
+            }
+            sum += i;
+        }
+        console.log("累加和（除个位为3的数）" + sum);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击</button>
+    <p>abc</p>
+    <div class="inner"></div>
+    <div class="create"></div>
+    <script>
+        // 1.document.write()创建元素
+        var btn = document.querySelector('button');
+        btn.onclick = function () {
+            document.write('<div>123</div>');
+        }
+        // 2.innerHTML创建元素，耗时久
+        var inner = document.querySelector('.inner');
+        var d1 = +new Date();
+        for (var i = 1; i <= 1000; i++) {
+            inner.innerHTML += '<a href="#">百度</a>';
+        }
+        var d2 = +new Date();
+        console.log(d2 - d1);
+
+        var d1 = +new Date();
+        var arr = [];
+        for (var i = 1; i <= 1000; i++) {
+            arr.push('<a href="#">百度</a>');
+        }
+        document.body.innerHTML = arr.join('');
+        var d2 = +new Date();
+        console.log(d2 - d1);
+
+        // 3.document.createElement()创建元素
+        var create = document.querySelector('.create');
+        var a = document.createElement('a');
+        var d1 = +new Date();
+        for (var i = 1; i <= 1000; i++) {
+            create.appendChild(a);
+        }
+        var d2 = +new Date();
+        console.log(d2 - d1);
+    </script>
+</body>
+
+</html>

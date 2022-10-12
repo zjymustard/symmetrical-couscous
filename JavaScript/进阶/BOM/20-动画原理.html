@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+
+        span {
+            position: relative;
+            top: 200px;
+            display: block;
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+        }
+    </style>
+    <script src="./20-animate.js"></script>
+</head>
+
+<body>
+    
+    <button class="btn500">点击500</button>
+    <button class="btn800">点击800</button>
+    <div></div>
+    <span></span>
+    <script>
+        // // 1.动画的基本原理
+        // // div.style.left = div.offsetLeft + 5 + 'px';
+        // var div = document.querySelector('div');
+        // // var timer = setInterval(function () {
+        // //     if (div.offsetLeft >= 500) {
+        // //         clearInterval(timer);
+        // //     }
+        // //     div.style.left = div.offsetLeft + 5 + 'px';
+        // // }, 30);
+
+        // // 2.简单动画函数封装
+        // // obj目标对象，target目标位置
+        // // function animate(obj, target) {
+        // //     var timer = setInterval(function () {
+        // //         if (obj.offsetLeft >= target) {
+        // //             clearInterval(timer);
+        // //         }
+        // //         obj.style.left = obj.offsetLeft + 5 + 'px';
+        // //     }, 30);
+        // // }
+        // // animate(div, 500);
+        // var span = document.querySelector('span');
+        // // animate(span, 500);
+
+        // // 3.优化
+        // // var obj = {};
+        // // obj.name = 'andy';
+        // // function animate(obj, target) {
+        // //     clearInterval(obj.timer);
+        // //     obj.timer = setInterval(function () {
+        // //         if (obj.offsetLeft >= target) {
+        // //             clearInterval(obj.timer);
+        // //         }
+        // //         obj.style.left = obj.offsetLeft + 5 + 'px';
+        // //     }, 30);
+        // // }
+        // animate(div, 500);
+        // // animate(span, 500);
+
+        // // 加入按钮button
+        // var btn5 = document.querySelector('.btn500');
+        // btn5.addEventListener('click', function () {
+        //     animate(span, 500);
+        // })
+        // var btn8 = document.querySelector('.btn800');
+        // btn8.addEventListener('click', function () {
+        //     animate(span, 800, function () {
+        //         span.style.backgroundColor = 'pink';
+        //     });
+        // })
+
+        // // 4.缓动动画
+        // // function animate(obj, target) {
+        // //     clearInterval(obj.timer);
+        // //     obj.timer = setInterval(function () {
+        // //         if (obj.offsetLeft == target) {
+        // //             clearInterval(obj.timer);
+        // //         }
+        // //         // 步长值
+        // //         // 正数向上取整math.ceil()，负数向下取整math.floor()
+        // //         var step = (target - obj.offsetLeft) / 10;
+        // //         step = step > 0 ? Math.ceil(step) : Math.floor(step);
+        // //         obj.style.left = obj.offsetLeft + step + 'px';
+        // //     }, 15);
+        // // }
+
+        // 5.回调函数
+        function animate(obj, target, callback) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                // 结束定时器
+                if (obj.offsetLeft == target) {
+                    clearInterval(obj.timer);
+                    if (callback) {
+                        // 调用回调函数
+                        callback();
+                    }
+                }
+                // 步长值
+                // 正数向上取整math.ceil()，负数向下取整math.floor()
+                var step = (target - obj.offsetLeft) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                obj.style.left = obj.offsetLeft + step + 'px';
+            }, 15);
+        }
+
+        // 6.封装函数
+        var div = document.querySelector('div');
+        var span = document.querySelector('span');
+        var btn5 = document.querySelector('.btn500');
+        var btn8 = document.querySelector('.btn800');
+
+        animate(div, 500);
+
+        btn5.addEventListener('click', function () {
+            animate(span, 500, function () {
+                span.style.backgroundColor = '';
+            });
+        })
+
+        btn8.addEventListener('click', function () {
+            animate(span, 800, function () {
+                span.style.backgroundColor = 'pink';
+            });
+        })
+
+    </script>
+</body>
+
+</html>

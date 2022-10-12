@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // 1
+        function calculate(num1, num2, symbol) {
+            var result = 0;
+            if (symbol == '+') {
+                return result = num1 + num2;
+            } else if (symbol == '-') {
+                return result = num1 - num2;
+            } else if (symbol == 'X') {
+                return result = num1 * num2;
+            } else if (symbol == '/') {
+                return result = num1 / num2;
+            } else {
+                return '输入不合法！';
+            }
+        }
+        console.log(calculate(1, 2, '+'));
+        console.log(calculate(1, 2, '-'));
+        console.log(calculate(1, 2, 'X'));
+        console.log(calculate(1, 2, '/'));
+
+        // 2
+        function getMax(num1, num2) {
+            return num1 >= num2 ? num1 : num2;
+        }
+        console.log(getMax(4, 16));
+
+        // 3
+        function getMax(num1, num2, num3) {
+            var num = num1 >= num2 ? num1 : num2;
+            return num >= num3 ? num : num3;
+        }
+        console.log(getMax(88, 4, 16));
+
+        // 素数❗❗❗
+        function judge(num) {
+            if (num < 2) {
+                return num + '不是素数。';
+            } else if (num == 2 || num == 3) {
+                return num + '是素数。';
+            } else if (num % 2 == 0) {
+                return num + '不是素数。';
+            } else {
+                for (var i = 3; i <= Math.sqrt(num); i++) {
+                    if (num % i == 0) {
+                        return num + '不是素数。';
+                    }
+                }
+                return num + '是素数。';
+            }
+        }
+        console.log(judge(2));
+        console.log(judge(3));
+        console.log(judge(16));
+        console.log(judge(55));
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

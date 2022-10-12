@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: green;
+        }
+
+        .change{
+            width: 400px;
+            height: 400px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div class="box"></div>
+    <script>
+        // 1.element.style，修改样式少
+        var div = document.querySelector('div');
+        div.onclick = function () {
+            // div.style的属性采用驼峰命名法
+            // JS修改style样式，生成行内样式，权重高于内嵌样式
+            div.style.backgroundColor = 'red';
+            div.style.width = '300px';
+            div.style.height = '300px';
+        }
+        // 2.element.className，修改样式多
+        var box = document.querySelector('.box');
+        box.onclick = function () {
+            box.className = 'change';
+        }
+        // 3.保留原先的类名
+        box.onclick = function () {
+            box.className = 'box change';
+        }
+    </script>
+</body>
+
+</html>

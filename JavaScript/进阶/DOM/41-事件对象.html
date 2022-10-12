@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>123</div>
+    <script>
+        // 1.event：事件对象，相当于形参
+        // 2.事件存在，事件对象存在，由系统自动创建，无需传递参数
+        // 3.事件对象是事件的一系列相关数据的集合
+        // 4.可以自主命名事件对象，比如event、evt、e
+        // 5.事件对象存在兼容性问题，ie 678使用window.event
+        // 6.兼容性写法：e = e || window.event;
+        var div = document.querySelector('div');
+        div.onclick = function (event) {
+            console.log(event);
+        }
+        div.addEventListener('click', function (e) {
+            e = e || window.event;
+            console.log(e);
+        })
+    </script>
+</body>
+
+</html>

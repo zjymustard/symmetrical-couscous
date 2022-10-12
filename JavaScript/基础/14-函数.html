@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // function getSum(num1, num2) {
+        //     var sum = 0;
+        //     for (var i = num1; i <= num2; i++) {
+        //         sum += i;
+        //     }
+        //     console.log(sum);
+        // }
+        // getSum(1, 100);
+
+        // function getMax(num1, num2) {
+        //     return num1 >= num2 ? num1 : num2;
+        // }
+        // console.log(getMax(5, 10));
+
+        // function getMax(arr) {
+        //     var max = arr[0];
+        //     for (var i = 0; i < arr.length; i++) {
+        //         if (max <= arr[i + 1]) {
+        //             max = arr[i + 1];
+        //         }
+        //     }
+        //     return max;
+        // }
+        // // console.log(getMax([5, 2, 99, 101, 67, 77]));
+        // var result = getMax([5, 2, 99, 101, 67, 77]);
+        // console.log(result);
+
+        // arguments❗❗❗
+        function getMax() {
+            var max = arguments[0];
+            for (var i = 0; i < arguments.length; i++) {
+                if (max <= arguments[i + 1]) {
+                    max = arguments[i + 1];
+                }
+            }
+            return max;
+        }
+        console.log(getMax(1, 2, 3));
+        console.log(getMax(1, 2, 3, 4, 5));
+        console.log(getMax(1, 2, 3, 4, 5, 66, 23));
+
+        // 不用arguments❗❗❗
+        function reverse(arr1) {
+            var arr2 = [];
+            for (var i = arr1.length - 1; i >= 0; i--) {
+                arr2[arr2.length] = arr1[i];
+            }
+            return arr2;
+        }
+        console.log(reverse([1, 2, 3, 4, 5]));
+
+        // 冒泡排序
+        // function sort(arr) {
+        //     var temp = [];
+        //     for (var i = 0; i < arr.length - 1; i++) {
+        //         for (var j = 0; j < arr.length - 1 - i; j++) {
+        //             temp[j] = arr[j];
+        //             arr[j] = arr[j + 1];
+        //             arr[j + 1] = temp[j];
+        //         }
+        //     }
+        //     return arr;
+        // }
+        // console.log(sort([5, 4, 3, 2, 1]));
+
+        // ❗❗❗
+        function getYear(year) {
+            if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+                return year + '年是闰年';
+            } else {
+                return year + '年是平年';
+            }
+        }
+        console.log(getYear(2000));
+        console.log(getYear(1999));
+
+        function isYear(year) {
+            if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        function getDays(year) {
+            if (isYear(year)) {
+                return '二月有29天';
+            } else {
+                return '二月有28天';
+            }
+        }
+        console.log(getDays(2000));
+        console.log(getDays(1999));
+
+        if (3 < 5) {
+            var num = 10;
+        }
+        console.log(num); // 输出num=10
+
+        function getNum() {
+            if (3 < 5) {
+                var num = 10;
+            }
+        }
+        console.log(num); // 报错
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

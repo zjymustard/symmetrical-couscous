@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /* Math对象 */
+
+        // var myMath = {
+        //     PI: 3.141592653,
+        //     max: function () {
+        //         var max = arguments[0];
+        //         for (var i = 1; i < arguments.length; i++) {
+        //             if (max < arguments[i]) {
+        //                 max = arguments[i];
+        //             }
+        //         }
+        //         return max;
+        //     },
+        //     min: function () {
+        //         var min = arguments[0];
+        //         for (var i = 1; i < arguments.length; i++) {
+        //             if (min > arguments[i]) {
+        //                 min = arguments[i];
+        //             }
+        //         }
+        //         return min;
+        //     }
+        // }
+
+        // console.log(myMath.PI);
+        // console.log(myMath.max(444, 116, 88));
+        // console.log(myMath.min(444, 88, 116));
+
+        // // 取绝对值Math.abs()
+        // console.log(Math.abs(1));
+        // console.log(Math.abs(-1));
+        // console.log(Math.abs('-1')); // 隐式转换，字符串型→数字型
+        // console.log(Math.abs('pink')); // NaN
+
+        // // 向下取整Math.floor()
+        // console.log(Math.floor(1.1)); // 1
+        // console.log(Math.floor(1.9)); // 1
+
+        // // 向上取整Math.ceil()
+        // console.log(Math.ceil(1.1)); // 2
+        // console.log(Math.floor(1.9)); // 2
+
+        // // 四舍五入Math.round()，.5特殊往大的取
+        // console.log(Math.round(1.1)); // 1
+        // console.log(Math.round(1.5)); // 2
+        // console.log(Math.round(1.9)); // 2
+        // console.log(Math.round(-1.1)); // -1
+        // console.log(Math.round(-1.5)); // -1
+
+        // // 返回一个随机小数Math.random()，左闭右开 0 <= x < 1
+        // console.log(Math.random());
+        // // 得到两数之间的随机整数，左闭右闭
+        // // Math.floor(Math.random() * (max - min + 1)) + min
+        // function getRandom(min, max) {
+        //     return Math.floor(Math.random() * (max - min + 1)) + min;
+        // }
+        // console.log(getRandom(4, 16));
+
+        // // 随机点名
+        // var arr = ['张三', '张三丰', '李四', '李思思', '王二'];
+        // var index = getRandom(0, arr.length - 1);
+        // console.log(arr[index]);
+
+        // // 案例
+        // var num1 = getRandom(1, 10);
+        // var flag;
+
+        // do {
+        //     var num2 = prompt('请输入一个数字');
+        //     if (num1 > num2) {
+        //         alert('数字小了！');
+        //         flag = false;
+        //     } else if (num1 < num2) {
+        //         alert('数字大了!');
+        //         flag = false;
+        //     } else {
+        //         alert('猜对了！');
+        //         flag = true;
+        //     }
+        // } while (!flag);
+
+        // // 作业：要求用户猜一个1-50之间的数字，但是只有10次机会。
+        // var num1 = getRandom(1, 50);
+        // var count = 0;
+
+        // do {
+        //     var num2 = prompt('请输入一个数字');
+        //     if (num1 > num2) {
+        //         alert('数字小了！');
+        //         count++;
+        //     } else if (num1 < num2) {
+        //         alert('数字大了!');
+        //         count++;
+        //     } else {
+        //         alert('猜对了！');
+        //         count++;
+        //         break;
+        //     }
+        // } while (count < 10);
+
+        /* Date对象 */
+
+        // // 获取当前时间
+        // var date1 = new Date();
+        // console.log(date1);
+        // // 数字型：2019，10，01，输入十月，返回十一月
+        // // 字符串型：‘2019-10-1 8:8:8’
+        // var date2 = new Date(2019, 10, 01);
+        // console.log(date2);
+        // var date3 = new Date('2019-10-1 8:8:8');
+        // console.log(date3);
+
+        // // 获得Date总的毫秒数，距离1970年1月1日过了多少毫秒数
+        // // valueof()
+        // var date1 = new Date();
+        // console.log(date1.valueOf());
+        // // getTime()
+        // console.log(date1.getTime());
+        // // 简单写法
+        // var date2 = +new Date();
+        // console.log(date2);
+        // // H5新增方法
+        // console.log(Date.now());
+
+        // 案例：倒计时效果
+        function countDown(time) {
+            var nowTime = +new Date(); // 返回当前时间的时间戳
+            var inputTime = +new Date(time); // 返回用户输入时间的时间戳
+            var times = (inputTime - nowTime) / 1000; // 剩余时间的时间戳
+
+            var day = parseInt(times / 60 / 60 / 24);
+            day = day < 10 ? '0' + day : day;
+            var hour = parseInt(times / 60 / 60 % 24);
+            hour = hour < 10 ? '0' + hour : hour;
+            var minute = parseInt(times / 60 % 60);
+            minute = minute < 10 ? '0' + minute : minute;
+            var second = parseInt(times % 60);
+            second = second < 10 ? '0' + second : second;
+
+            return day + '天' + hour + '时' + minute + '分' + second + '秒';
+        }
+        console.log(countDown('2022-7-20 00:00:00'));
+
+        /* Array对象 */
+        // 创建数组的方式
+        // 1.利用数组字面量
+        var arr1 = [1, 2, 3];
+        console.log(arr1);
+        // 2.利用new Array()
+        var arr2 = new Array();
+        var arr2 = new Array(2); // 数组长度为2，有两个空数组元素
+
+        // 检测是否为数组
+        // 1.instanceof运算符
+        var arr = [];
+        var obj = {};
+        console.log(arr instanceof Array);
+        console.log(obj instanceof Array);
+        // 2.Array.isArray(参数) H5新增
+        console.log(Array.isArray(arr));
+        console.log(Array.isArray(obj));
+
+        // 添加新数组元素
+        // 1.push()
+        var arr = [1, 2, 3];
+        // arr.push(4, 'pink');
+        console.log(arr.push(4, 'pink')); // =arr.length
+        console.log(arr);
+        // 2.unshift()
+        // arr.unshift('red', 'purple');
+        console.log(arr.unshift('red', 'purple'));
+        console.log(arr);
+
+        // 删除数组元素
+        // 1.pop()
+        // arr.pop();
+        console.log(arr.pop());
+        console.log(arr);
+        // 2.shift()
+        // arr.shift();
+        console.log(arr.shift());
+        console.log(arr);
+
+        // 翻转数组
+        var arr = ['pink', 'red', 'blue'];
+        arr.reverse();
+        console.log(arr);
+
+        // 冒泡排序
+        var arr1 = [3, 4, 7, 1, 7]; // 正确✔
+        var arr2 = [13, 4, 77, 1, 7]; // 错误❌
+        arr1.sort();
+        arr2.sort();
+        console.log(arr1);
+        console.log(arr2);
+
+        var arr = [13, 4, 77, 1, 7]; // 正确✔
+        arr.sort(function (a, b) {
+            return a - b; // 降序排列
+            return b - a; // 降序排列
+        });
+        console.log(arr);
+
+        // 数组去重
+        function unique(arr) {
+            var newArr = [];
+            for (var i = 0; i < arr.length; i++) {
+                if (newArr.indexOf(arr[i]) == -1) {
+                    newArr.push(arr[i]);
+                }
+            }
+            return newArr;
+        }
+        console.log(unique(['c', 'a', 'z', 'a', 'x', 'a', 'x', 'c', 'b']));
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

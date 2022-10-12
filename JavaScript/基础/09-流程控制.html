@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // 案例1
+        // var age = prompt('请输出年龄');
+        // if (age > 18) {
+        //     alert('允许进入网吧！');
+        // } else {
+        //     alert('未成年，不允许进入网吧！');
+        // }
+
+        // 案例2
+        // var year = prompt('请输入年份');
+        // if (year % 4 == 0 && 100 % year != 0) {
+        //     alert(year + '是闰年。');
+        // } else {
+        //     alert(year + '是平年。');
+        // }
+
+        // 案例3
+        // var name = prompt('请输入姓名');
+        // if (name == '刘德华') {
+        //     alert('您中了5块钱！');
+        // } else {
+        //     alert('抱歉，您没有中奖。');
+        // }
+
+        // 案例4
+        // var score = prompt('输入分数');
+        // if (score >= 90) {
+        //     alert('对应等级为A。');
+        // } else if (score < 90 && score >= 80) {
+        //     alert('对应等级为B。');
+        // } else if (score < 80 && score >= 70) {
+        //     alert('对应等级为C。');
+        // } else if (score < 70 && score >= 60) {
+        //     alert('对应等级为D。');
+        // } else {
+        //     alert('对应等级为E。');
+        // }
+
+        // 案例5
+        // var num = prompt('请输入数字');
+        // num < 10 ? alert('0' + num) : alert(num);
+        // var result = num < 10 ? '0' + num : num;
+        // alert(result);
+
+        // 案例6
+        // var fruit = prompt('请输入水果');
+        // switch (fruit) {
+        //     case '苹果':
+        //         alert('价格为10元。');
+        //         break;
+        //     case '香蕉':
+        //         alert('价格为11元。');
+        //         break;
+        //     case '梨':
+        //         alert('价格为12元。');
+        //         break;
+        //     default:
+        //         alert('没有此水果！');
+        // }
+
+        // for循环
+        // 输出100句你好
+        // for (var i = 1; i <= 100; i++) {
+        //     console.log('你好！');
+        // }
+        // console.log(i); // i=101
+
+        // var num1 = prompt('输入循环次数');
+        // for (var i = 1; i <= parseInt(num1); i++) {
+        //     console.log('你好！');
+        // }
+        // console.log(i);
+
+        // for (var i = 1; i <= 100; i++) {
+        //     console.log('她今年' + i + '岁。');
+        // }
+        // console.log(i);
+
+        // for (var i = 1; i <= 100; i++) {
+        //     if (i == 1) {
+        //         console.log('她今年刚出生！');
+        //     } else if (i == 100) {
+        //         console.log('她今年去世了！');
+        //     } else {
+        //         console.log('她今年' + i + '岁。');
+        //     }
+        // }
+        // console.log(i);
+
+        // 案例：1-100累加和
+        // sum必须初始化❗
+        var sum = 0;
+        for (var i = 1; i <= 100; i++) {
+            sum += i;
+        }
+        console.log(sum); //5050
+
+        // 1-100平均值
+        // var avg = 0;
+        // for (var i = 1; i <= 100; i++) {
+        //     avg = i / 2;
+        //     console.log(i + '的平均值是' + avg);
+        // }
+        // console.log(sum / 100);
+
+        // 1-100偶数和、奇数和
+        // var oddSum = 0, evenSum = 0;
+        // for (var i = 1; i <= 100; i++) {
+        //     if (i % 2 == 0) {
+        //         evenSum += i;
+        //     } else {
+        //         oddSum += i;
+        //     }
+        // }
+        // console.log('偶数和：' + evenSum);
+        // console.log('奇数和：' + oddSum);
+
+        // 1-100被3整除的数字之和
+        // var sum = 0;
+        // for (var i = 1; i <= 100; i++) {
+        //     if (i % 3 == 0) {
+        //         sum += i;
+        //     }
+        // }
+        // console.log(sum);
+
+        // 案例
+        // score是string型，需要转成数字型❗
+        var sum = 0;
+        var num = prompt('输入班级人数');
+        for (var i = 1; i <= parseInt(num); i++) {
+            var score = prompt('输入第' + i + '位同学的成绩');
+            console.log('第' + i + '位同学的成绩是' + parseFloat(score));
+            sum += parseFloat(score);
+        }
+        console.log('班级总成绩是' + sum);
+        console.log('班级平均成绩是' + sum / num);
+
+        // 案例：输出一行五颗星星
+        // var str = '';
+        // for (var i = 1; i <= 5; i++) {
+        //     str += '★';
+        // }
+        // console.log(str);
+
+        // 双重for循环
+        // for (var i = 1; i <= 3; i++) {
+        //     console.log('外层循环第' + i + '次。');
+        //     for (var j = 1; j <= 3; j++) {
+        //         console.log('内层循环的第' + j + '次。');
+        //     }
+        // }
+
+        // var str = '';
+        // for (var i = 1; i <= 5; i++) {
+        //     for (var j = 1; j <= 5; j++) {
+        //         str += '☆';
+        //     }
+        //     str += '\n';
+        // }
+        // console.log(str);
+
+        // 打印n行n列星星
+        // var rows = prompt('输入行数');
+        // var cols = prompt('输入列数');
+        // var str = '';
+        // for (var i = 1; i <= rows; i++) {
+        //     for (var j = 1; j <= cols; j++) {
+        //         str += '★';
+        //     }
+        //     str += '\n';
+        // }
+        // console.log(str);
+
+        // 打印倒三角形❗❗❗
+        var str = '';
+        for (var i = 1; i <= 10; i++) {
+            for (var j = i; j <= 10; j++) {
+                str += '☆';
+            }
+            str += '\n';
+        }
+        console.log(str);
+
+        // 打印正三角形
+        // var str = '';
+        // for (var i = 1; i <= 10; i++) {
+        //     for (var j = i; j > 0; j--) {
+        //         str += '★';
+        //     }
+        //     str += '\n';
+        // }
+        // console.log(str);
+
+        // 打印九九乘法表❗❗❗❗❗❗
+
+        /* 
+        1X1=1	
+        2X2=4	1X2=2	
+        3X3=9	2X3=6	1X3=3	
+        4X4=16	3X4=12	2X4=8	1X4=4	
+        5X5=25	4X5=20	3X5=15	2X5=10	1X5=5	
+        6X6=36	5X6=30	4X6=24	3X6=18	2X6=12	1X6=6	
+        7X7=49	6X7=42	5X7=35	4X7=28	3X7=21	2X7=14	1X7=7	
+        8X8=64	7X8=56	6X8=48	5X8=40	4X8=32	3X8=24	2X8=16	1X8=8	
+        9X9=81	8X9=72	7X9=63	6X9=54	5X9=45	4X9=36	3X9=27	2X9=18	1X9=9 
+        */
+        var str = '';
+        for (var i = 1; i <= 9; i++) {
+            for (var j = i; j > 0; j--) {
+                str += j + 'X' + i + '=' + i * j + '\t';
+            }
+            str += '\n';
+        }
+        console.log(str);
+
+        /* 
+        1X1=1	
+        1X2=2	2X2=4	
+        1X3=3	2X3=6	3X3=9	
+        1X4=4	2X4=8	3X4=12	4X4=16	
+        1X5=5	2X5=10	3X5=15	4X5=20	5X5=25	
+        1X6=6	2X6=12	3X6=18	4X6=24	5X6=30	6X6=36	
+        1X7=7	2X7=14	3X7=21	4X7=28	5X7=35	6X7=42	7X7=49	
+        1X8=8	2X8=16	3X8=24	4X8=32	5X8=40	6X8=48	7X8=56	8X8=64	
+        1X9=9	2X9=18	3X9=27	4X9=36	5X9=45	6X9=54	7X9=63	8X9=72	9X9=81	
+        */
+        var str = '';
+        for (var i = 1; i <= 9; i++) {
+            for (var j = 1; j <= i; j++) {
+                str += j + 'X' + i + '=' + i * j + '\t';
+            }
+            str += '\n';
+        }
+        console.log(str);
+
+        // while循环
+        // var age = 1;
+        // while (age <= 100) {
+        //     console.log('此人今年' + age + '岁。');
+        //     age++;
+        // }
+
+        // var sum = 0, num = 1;
+        // while (num <= 100) {
+        //     sum += num;
+        //     num++;
+        // }
+        // console.log(sum);
+
+        // var result = prompt('你爱我吗？');
+        // while (result != '我爱你') {
+        //     result = prompt('你爱我吗？');
+        // }
+        // alert('我也爱你！');
+
+        // do-while循环
+        // var age = 1;
+        // do {
+        //     console.log('此人今年' + age + '岁。');
+        //     age++;
+        // } while (age <= 100)
+
+        // var sum = 0, num = 1;
+        // do {
+        //     sum += num;
+        //     num++;
+        // } while (num <= 100)
+        // console.log(sum);
+
+        // var result = prompt('你爱我吗？');❗❗❗❗
+        do {
+            var result = prompt('你爱我吗？');
+        } while (result != '我爱你')
+        alert('我也爱你！');
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hour,
+        .minute,
+        .second {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: black;
+            font-size: 16px;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+        }
+
+        input {
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span class="hour">1</span>
+        <span class="minute">2</span>
+        <span class="second">3</span>
+    </div>
+    <button class="begin">开启定时器</button>
+    <button class="stop">停止定时器</button>
+    <input type="text">
+    <button>发送</button>
+    <script>
+        // 1.window.setInterval(回调函数, [间隔的毫秒数]);
+        setInterval(function () {
+            console.log('间隔输出');
+        }, 1000);
+
+        // 案例：倒计时效果
+        // 1.获取元素
+        var hour = document.querySelector('.hour'); // 小时的黑色盒子
+        var minute = document.querySelector('.minute'); // 分钟的黑色盒子
+        var second = document.querySelector('.second'); // 秒数的黑色盒子
+        var inputTime = +new Date('2022-8-1 22:00:00'); // 设置的时间的时间戳（毫秒）
+        countDown(); // 事先调用一次，防止显示123
+        // 2.开启定时器
+        setInterval(countDown, 1000);
+        function countDown() {
+            var nowTime = +new Date(); // 当前时间的时间戳（毫秒）
+            var time = (inputTime - nowTime) / 1000; // 剩余时间的时间戳（毫秒 -> 秒）
+            var h = parseInt(time / 60 / 60 % 24); // 时
+            var m = parseInt(time / 60 % 60); // 分
+            var s = parseInt(time % 60); // 秒
+            h = h < 10 ? '0' + h : h;
+            m = m < 10 ? '0' + m : m;
+            s = s < 10 ? '0' + s : s;
+            hour.innerHTML = h; // 赋值给倒计时盒子
+            minute.innerHTML = m;
+            second.innerHTML = s;
+        }
+
+        // 获得当前时间
+        function fn() {
+            var time = new Date();
+            var hour = time.getHours();
+            var minute = time.getMinutes();
+            var second = time.getSeconds();
+            console.log(hour + ':' + minute + ':' + second);
+        }
+        fn();
+
+        var begin = document.querySelector('.begin');
+        var stop = document.querySelector('.stop');
+        var timer = null; // 全局变量，null是一个空对象
+        begin.addEventListener('click', function () {
+            timer = setInterval(function () {
+                console.log('你好！');
+            }, 1000);
+        })
+        stop.addEventListener('click', function () {
+            clearInterval(timer);
+        })
+
+        // 案例：发送短信
+        var text = document.querySelector('input');
+        var btn = document.querySelector('button');
+        var time = 10;
+        btn.addEventListener('click', function () {
+            btn.disabled = true;
+            // btn.innerHTML = '60秒后再次点击';
+            var timer = setInterval(function () {
+                if (time == 0) {
+                    // 清除定时器
+                    clearInterval(timer);
+                    // 复原按钮
+                    btn.disabled = false;
+                    btn.innerHTML = '发送';
+                    time = 10;
+                } else {
+                    btn.innerHTML = time + '秒后再次点击';
+                    time--;
+                }
+            }, 1000);
+        })
+    </script>
+</body>
+
+</html>

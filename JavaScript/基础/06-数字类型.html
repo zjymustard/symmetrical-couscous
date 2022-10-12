@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        var num1 = 10;
+        num1 = 'pink';
+        console.log(num1);
+
+        // 八进制，1×8^(2-1)
+        var num2 = 010;
+        console.log(num2);
+
+        // 十六进制，10×16^(2-1)＋11×16^(1-1)
+        var num3 = 0xab;
+        console.log(num3);
+
+        // 数字型的最大值和最小值
+        console.log(Number.MAX_VALUE);
+        console.log(Number.MIN_VALUE);
+
+        // 无穷大、无穷小
+        console.log(Number.MAX_VALUE * 2);
+        console.log(Number.MIN_VALUE * 2);
+
+        // 计算非数字，得到结果NaN
+        console.log('pink' - 100);
+
+        // isNaN()
+        var num4 = 'pink';
+        console.log(isNaN(num4));
+        var num5 = 416;
+        console.log(isNaN(num5));
+
+        // 字符串类型，转义符
+        console.log("'pink'老师\n");
+        console.log("\t'pink'老师");
+
+        // 字符串长度
+        var str = 'pinkpinkpink';
+        console.log(str.length);
+
+        // 字符串拼接
+        var age = 18;
+        console.log('沙漠' + '骆驼');
+        console.log('pink' + age + '岁');
+        console.log('88' + '0416');
+
+        // 数字型相加
+        console.log(1 + 2);
+
+        // 案例1
+        var age1 = prompt('输入年龄');
+        alert('你今年' + age1 + '岁');
+
+        // 布尔型
+        var flag1 = true;
+        var flag2 = false;
+        console.log(flag1 + 1); // ≈1+1
+        console.log(flag2 + 1); // ≈0+1
+
+        // undefined型
+        var str1;
+        console.log(str1); // undefined
+        var str2 = undefined;
+        console.log(str2 + 'pink'); // undefinedpink
+        console.log(str2 + 16); // NaN
+
+        // Null型
+        var space = null;
+        console.log(space + 'pink'); // nullpink
+        console.log(space + 16); // ≈0+16
+
+        // typeof
+        console.log(typeof (10));
+        console.log(typeof ('pink'));
+        console.log(typeof (true));
+        console.log(typeof (undefined));
+        console.log(typeof (null)); // object型
+
+        // prompt获取的值是字符串型
+        var age2 = prompt('输入年龄');
+        console.log(age2);
+        console.log(typeof (age2));
+
+        // 转字符串型
+        var num = 10;
+        var str = num.toString();
+        console.log(str);
+        console.log(typeof (str));
+
+        // 转数字型
+        var age3 = prompt('输入年龄');
+        console.log(parseInt(age3));
+
+        console.log(parseInt('3.14')); // 取整
+        console.log(parseInt('120px')); // 只取数字，舍去字母
+        console.log(parseInt('rm120px')); // 不以数字开头，值为NaN
+
+        console.log(parseFloat('3'));
+        console.log(parseFloat('3.14'));
+        console.log(parseFloat('120px')); // 只取数字，舍去字母
+        console.log(parseFloat('rm120px')); // 不以数字开头，值为NaN
+
+        var str3 = '123';
+        console.log(Number(str3));
+        console.log(Number('12'));
+
+        console.log('12' - 0);
+        console.log('123' - '120');
+
+        // 案例2
+        var year = prompt('输入出生年份');
+        var age = 2022 - year;
+        alert('您的年龄是' + age + '岁');
+
+        // 案例3
+        var num1 = prompt('输入第一个数');
+        var num2 = prompt('输入第二个值');
+        // var sum = parseFloat(num1) + parseFloat(num2);
+        var sum = num1 - (-num2);
+        alert(num1 + '+' + num2 + '=' + sum);
+
+        // 转布尔型
+        // false
+        console.log(Boolean(''));
+        console.log(Boolean(0));
+        console.log(Boolean(NaN));
+        console.log(Boolean(null));
+        console.log(Boolean(undefined));
+        console.log(Boolean(false));
+        // true
+        console.log(Boolean('pink'));
+        console.log(Boolean(123));
+        console.log(Boolean(true));
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

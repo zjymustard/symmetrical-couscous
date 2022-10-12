@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrapper {
+            margin: 10px auto;
+            width: 1200px;
+        }
+
+        .header {
+            height: 200px;
+            background-color: purple;
+        }
+
+        .banner {
+            height: 400px;
+            background-color: skyblue;
+        }
+
+        .main {
+            height: 800px;
+            background-color: green;
+        }
+
+        .slider-bar {
+            position: absolute;
+            left: 50%;
+            top: 300px;
+            margin-left: 600px;
+            width: 45px;
+            height: 130px;
+            background-color: pink;
+        }
+
+        .slider-bar .goBack {
+            display: none;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider-bar">
+        <span class="goBack">返回顶部</span>
+    </div>
+    <div class="header wrapper">头部区域</div>
+    <div class="banner wrapper">banner区域</div>
+    <div class="main wrapper">主体部分</div>
+    <script>
+        // 1.获取元素
+        var sliderBar = document.querySelector('.slider-bar');
+        var banner = document.querySelector('.banner');
+        // banner.offsetTop，被卷去头部的大小
+        var bannerTop = banner.offsetTop;
+        // console.log(bannerTop);
+        // sliderBar.offsetTop，侧边栏到上边的距离，即top:300px;
+        var sliderBarTop = sliderBar.offsetTop - bannerTop;
+        // console.log(sliderBar.offsetTop);
+        // 2.页面滚动事件scroll
+        document.addEventListener('scroll', function () {
+            // console.log(11);
+            // window.pageYOffset，页面被卷去的头部
+            // console.log(window.pageYOffset);
+            // 3.页面被卷去的头部大于等于210时，侧边栏改为固定定位
+            if (window.pageYOffset >= bannerTop) {
+                sliderBar.style.position = 'fixed';
+                sliderBar.style.top = sliderBarTop + 'px';
+            } else {
+                sliderBar.style.position = 'absolute';
+                sliderBar.style.top = '300px';
+            }
+        })
+
+        // 显示隐藏【返回顶部】
+        var back = document.querySelector('.goBack');
+        var main = document.querySelector('.main');
+        var mainTop = main.offsetTop;
+        document.addEventListener('scroll', function () {
+            if (window.pageYOffset >= mainTop) {
+                back.style.display = 'block';
+            } else {
+                back.style.display = 'none';
+            }
+        })
+        // 4.返回顶部功能
+        back.addEventListener('click', function () {
+            // x，y不带单位
+            // window.scroll(0, 0);
+            animate(window, 0);
+        })
+
+        // 上下滚动
+        function animate(obj, target, callback) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                if (obj.offsetLeft == target) {
+                    clearInterval(obj.timer);
+                    if (callback) {
+                        callback();
+                    }
+                }
+                var step = (target - window.pageYOffset) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                // obj.style.left = window.pageYOffset + step + 'px';
+                window.scroll(0, window.pageYOffset + step);
+            }, 15);
+        }
+    </script>
+</body>
+
+</html>

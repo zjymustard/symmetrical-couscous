@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // 字面量
+        var obj = {
+            name: '可可',
+            type: '阿拉斯加犬',
+            age: 5,
+            color: '棕红色',
+            bark: function () { },
+            showFilm: function () { }
+        }
+
+        // new Object
+        var obj = new Object();
+        obj.name = '鸣人';
+        obj.sex = '男';
+        obj.age = 19;
+        obj.skill = function () {
+            console.log('影分身术');
+        }
+
+        // 构造函数❗❗❗
+        function Star(name, age, sex) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+            this.sing = function (song) {
+                console.log(song);
+            }
+        }
+        var ldh = new Star('刘德华', 55, '男');
+        console.log(typeof (ldh));
+        console.log(ldh.name);
+        console.log(ldh['sex']);
+        ldh.sing('冰雨');
+
+        function Heroes(name, type, blood) {
+            this.name = name;
+            this.type = type;
+            this.blood = blood;
+            this.attack = function (way) {
+                console.log(way);
+            }
+        }
+        var lp = new Heroes('廉颇', '力量型', 500);
+        console.log(lp);
+        lp.attack('近战');
+
+        // 遍历对象
+        var obj = {
+            name: 'pink',
+            age: 18,
+            sex: '男',
+            fn: function () {
+                console.log('JavaScript');
+            }
+        }
+
+        for (var k in obj) {
+            console.log(k); // 变量，输出属性名
+            console.log(obj[k]); // 值，输出属性值
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

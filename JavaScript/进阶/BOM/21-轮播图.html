@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul,
+        ol {
+            list-style: none;
+            text-align: center;
+        }
+
+        .wrapper {
+            margin: 0 auto;
+            width: 1000px;
+        }
+
+        .box {
+            position: relative;
+            margin-top: 20px;
+            overflow: hidden;
+            height: 500px;
+            background-color: pink;
+        }
+
+        .btn-l {
+            display: none;
+            position: absolute;
+            left: 0;
+            font-size: 40px;
+            line-height: 500px;
+            color: #fff;
+            z-index: 999;
+        }
+
+        .btn-r {
+            display: none;
+            position: absolute;
+            right: 0;
+            font-size: 40px;
+            line-height: 500px;
+            color: #fff;
+            z-index: 999;
+        }
+
+        .circle {
+            position: absolute;
+            bottom: 0;
+            width: 1000px;
+        }
+
+        .circle li {
+            display: inline-block;
+            margin-right: 5px;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #fff;
+            opacity: 0.5;
+        }
+
+        .circle .current {
+            opacity: 1;
+        }
+
+        ul {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3000%;
+        }
+
+        ul li {
+            float: left;
+        }
+    </style>
+    <script src="./21-animate.js"></script>
+    <script src="./21-轮播图.js"></script>
+</head>
+
+<body>
+    <!-- 轮播图大盒子 -->
+    <div class="box wrapper">
+        <!-- 左侧按钮 -->
+        <a href="javascript:;" class="btn-l">
+            &lt;
+        </a>
+        <!-- 右侧按钮 -->
+        <a href="javascript:;" class="btn-r">
+            &gt;
+        </a>
+        <!-- 滚动区 -->
+        <ul>
+            <li>
+                <a href="javascript:;"><img src="./images/noon.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:;"><img src="./images/sunrise.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:;"><img src="./images/sunset.jpg" alt=""></a>
+            </li>
+        </ul>
+        <!-- 小圆圈 -->
+        <ol class="circle">
+        </ol>
+    </div>
+</body>
+
+</html>
