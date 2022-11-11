@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h2 v-text="n"></h2>
+        <h2>当前的n值是：{{n}}</h2>
+        <button @click="add">n+1</button>
+        <button @click="bye">销毁vm</button>
+    </div>
+
+    <script>
+        Vue.config.productionTip = false;
+
+        new Vue({
+            el: '#root',
+            // template: `
+            //     <div>
+            //         <h2>当前的n值是：{{n}}</h2>
+            //         <button @click="n++">n+1</button>
+            //     </div>
+            // `,
+            data: {
+                n: 1,
+            },
+            methods: {
+                add() {
+                    console.log('add');
+                    this.n++;
+                },
+                bye() {
+                    console.log('bye');
+                    this.$destroy();
+                }
+            },
+            watch: {
+                n() {
+                    console.log('n变');
+                }
+            },
+            beforeCreate() {
+                console.log('beforeCreate');
+                // console.log(this); Vue，无_data
+                // debugger;
+            },
+            created() {
+                console.log('created');
+                // console.log(this); Vue，有_data
+                // debugger;
+            },
+            beforeMount() {
+                console.log('beforeMount');
+                // console.log(this);
+                // debugger;
+                // document.querySelector('h2').innerHTML = '哈哈'; ×无效
+            },
+            mounted() {
+                console.log('Mounted');
+                // console.log(this);
+                // debugger;
+                // document.querySelector('h2').innerHTML = '哈哈';
+            },
+            /* 页面与数据未保持一致 */
+            beforeUpdate() {
+                console.log('beforeUpdate');
+                // console.log(this.n);
+                // debugger;
+            },
+            updated() {
+                console.log('updated');
+                this.n = 99;
+                // debugger;
+            },
+            /* 数据不再更新 */
+            beforeDestroy() {
+                // console.log(this.n);
+                // this.add();
+                console.log('beforeDestroy');
+            },
+            destroyed() {
+                console.log('destroyed');
+            },
+        })
+    </script>
+</body>
+
+</html>

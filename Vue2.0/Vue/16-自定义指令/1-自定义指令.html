@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+<!--
+    总结：
+        自定义指令总结：
+            一、定义语法：
+                1、局部指令：
+                    new Vue({
+                        directives: {指令名: 配置对象}
+                    })
+
+                    new Vue({
+                        directives{指令名: 回调函数}
+                    })
+                2、全局指令
+            二、配置对象中常用的3个问题：
+                1、bind：指令与元素成功绑定时调用
+                2、inserted：指令所在元素被插入页面时调用
+                3、update：指令所在模板结构被重新解析时调用
+            三、备注：
+                1、指令定义时不加v-，但使用时要加v-
+                2、指令名如果是多个单词，要使用kebab-case命名方式，不使用camelCase命名
+-->
+
+    <div id="root">
+        <h2>当前n值是：<span v-text="n"></span></h2>
+        <h2>乘以10后的n值是：<span v-big="n"></span></h2>
+        <h2>乘以10后的n值是：<span v-big-number="n"></span></h2>
+        <button @click="n++">n+1</button>
+        <hr>
+        <!-- <input type="text" v-bind:value="n"> -->
+        <input type="text" v-fbind:value="n">
+    </div>
+
+    <script>
+        Vue.config.productionTip = false;
+
+        // 全局自定义指令
+        /* Vue.directive('fbind', {
+            // 指令与元素成功绑定时（一开始）
+            bind(element, binding) {
+                element.value = binding.value;
+            },
+            // 指令所在元素被插入页面时
+            inserted(element, binding) {
+                element.focus();
+            },
+            // 指令所在的模板被重新解析时
+            update(element, binding) {
+                element.value = binding.value;
+            },
+        });
+        Vue.directive('big', function (element, binding) {
+            element.innerText = binding.value * 10;
+        });
+        Vue.directive('big-number', function (element, binding) {
+            element.innerText = binding.value * 10;
+        }); */
+
+
+        new Vue({
+            el: '#root',
+            data: {
+                n: 1,
+            },
+            // 自定义指令，this指向window
+            directives: {
+                // 方法一
+                fbind: {
+                    // 指令与元素成功绑定时（一开始）
+                    bind(element, binding) {
+                        element.value = binding.value;
+                    },
+                    // 指令所在元素被插入页面时
+                    inserted(element, binding) {
+                        element.focus();
+                    },
+                    // 指令所在的模板被重新解析时
+                    update(element, binding) {
+                        element.value = binding.value;
+                    },
+                },
+
+                // 方法二
+                // big函数何时被调用：1.指令与元素成功绑定时（一开始）；2.指令所在的模板被重新解析时
+                big(element, binding) {
+                    // console.log(element, binding.value);
+                    element.innerText = binding.value * 10;
+                },
+                'big-number'(element, binding) {
+                    // console.log(element, binding.value);
+                    element.innerText = binding.value * 10;
+                },
+            },
+        })
+    </script>
+</body>
+
+</html>

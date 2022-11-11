@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin-top: 20px;
+        }
+
+        .demo1 {
+            height: 100px;
+            background-color: skyblue;
+        }
+
+        .box1 {
+            padding: 10px;
+            background-color: skyblue;
+        }
+
+        .box2 {
+            padding: 10px;
+            background-color: orange;
+        }
+
+        .list {
+            overflow: auto;
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+        }
+
+        li {
+            height: 100px;
+        }
+    </style>
+    <!-- 引入VUE -->
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+<!-- 
+    总结：
+        VUE中的事件修饰符：
+            1、prevent：阻止默认事件（常用）
+            2、stop：阻止事件冒泡（常用）
+            3、once：事件只触发一次（常用）
+            4、capture：使用事件的捕获模式
+            5、self：只有event.target是当前操作的元素时才触发事件
+            6、passive：事件的默认行为立即执行，无需等待事件回调执行完毕
+-->
+
+    <!-- 准备容器 -->
+    <div id="root">
+        <h2>欢迎来到{{name}}学习</h2>
+
+        <!-- prevent：阻止默认事件（常用） -->
+        <a href="https://www.bilibili.com" @click.prevent="showInfo">点击，跳转网页</a>
+
+        <!-- stop：阻止事件冒泡（常用） -->
+        <div class="demo1" @click="showInfo">
+            <button @click.stop="showInfo">点击，显示信息</button>
+            <!-- 修饰符可以连续写 -->
+            <a href="https://www.bilibili.com" @click.stop.prevent="showInfo">点击，显示信息</a>
+        </div>
+
+        <!-- once：事件只触发一次（常用） -->
+        <button @click.once="showInfo">点击，显示信息</button>
+
+        <!-- capture：使用事件的捕获模式 -->
+        <div class="box1" @click.capture="showMsg(1)">
+            div1
+            <div class="box2" @click="showMsg(2)">
+                div2
+            </div>
+        </div>
+
+        <!-- self：只有event.target是当前操作的元素时才触发事件 -->
+        <div class="demo1" @click.self="showInfo">
+            <button @click="showInfo">点击，显示信息</button>
+        </div>
+
+        <!-- passive：事件的默认行为立即执行，无需等待事件回调执行完毕 -->
+        <ul class="list" @scroll="demo">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+
+    <script>
+        Vue.config.productionTip = false;
+
+        new Vue({
+            el: '#root',
+            data: {
+                name: '哔哩哔哩',
+            },
+            methods: {
+                showInfo(e) {
+                    // 阻止默认跳转
+                    // e.preventDefault();
+                    // 阻止冒泡
+                    // e.stopPropagation();
+                    alert('Hello');
+                },
+                showMsg(msg) {
+                    console.log(msg);
+                },
+                demo() {
+                    for (let i = 0; i < 100000; i++) {
+                        console.log('#');
+                    }
+                    console.log('结束');
+                },
+            },
+        });
+    </script>
+</body>
+
+</html>

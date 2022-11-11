@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入VUE -->
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    
+<!-- 
+    总结：
+        1、VUE工作前，必须创建一个VUE实例，且要传入一个配置对象
+        2、容器内的代码依然符合HTML规范，加入一些特殊的VUE语法
+        3、容器内的代码被称为【VUE模板】
+        4、VUE实例和容器一一对应
+        5、真实开发中只有一个VUE实例，配合组件一起使用
+        6、{{xxx}}中必须是JS表达式，且可以自动读取data中的所有属性
+        7、data中的数据发生变化，页面数据也会自动更新
+
+        注意区分：JS表达式和JS代码（语句）
+        1、表达式：一个表达式会生成一个值，可以放在任何一个需要值的地方
+            a
+            a + b
+            demo(1)
+            x === y ? 'a' : 'b'
+        2、JS代码（语句）
+            if () { }
+            for () { }
+-->
+ 
+    <!-- 准备容器 -->
+    <div id="root">
+        <!-- 插值语法 -->
+        <h1>Hello，{{name}}，{{Date.now()}}，{{age}}</h1>
+    </div>
+
+    <script>
+        // 阻止VUE在启动时生成生产提示
+        Vue.config.productionTip = false;
+
+        // 创建VUE实例（一切的开端）
+        const x = new Vue({
+            // element，建立实例和容器之间的关系，值通常为CSS选择器字符串
+            // el: document.getElementById('root')
+            el: '#root',
+            // data，存储数据，供el指定的容器使用，值暂时写成对象
+            data: {
+                name: 'world'
+            }
+        });
+    </script>
+</body>
+
+</html>
